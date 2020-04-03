@@ -12,6 +12,15 @@ export class NumbersonlyDirective {
     if (event.data !== null) {
       if (event.data !== "." && event.data !== "-") {
         if (pattern.test(initalValue)) {
+          // Add your Range Condion Here
+          // if(range Condition){
+          //   this.el.nativeElement.value = initalValue;
+          // }else{
+          //   this.el.nativeElement.value = initalValue.substr(
+          //     0,
+          //     initalValue.length - 1
+          //   );
+          // }
           this.el.nativeElement.value = initalValue;
         } else {
           this.el.nativeElement.value = initalValue.substr(
