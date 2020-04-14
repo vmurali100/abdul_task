@@ -6,9 +6,11 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { DemoMaterialModule } from "./material.module";
 import { FormsModule } from "@angular/forms";
 import { NumbersonlyDirective } from './numbersonly.directive';
+import { CustomdateDirective } from './customdate.directive';
+import { CustomdatesecDirective } from './customdatesec.directive';
 
 @NgModule({
-  declarations: [AppComponent, NumbersonlyDirective],
+  declarations: [AppComponent, NumbersonlyDirective, CustomdateDirective, CustomdatesecDirective],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
