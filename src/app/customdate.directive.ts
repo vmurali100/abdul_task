@@ -8,30 +8,30 @@ export class CustomdateDirective {
 
   @HostListener("input", ["$event"]) onInputChange(event) {
     let initialValue = this.el.nativeElement.value;
-    console.log(this.el.nativeElement.value);
     let pattern = /^[0-9]*$/;
-    if (initialValue.length <= 14) {
-      if (pattern.test(initialValue)) {
+    if (initialValue.length <= 18) {
+      if (initialValue.length <= 8) {
+        if (pattern.test(initialValue)) {
+          this.el.nativeElement.value = initialValue;
+        } else {
+          this.correctInput(initialValue);
+        }
+      } else if (initialValue.length == 9 && event.data == "T") {
+        this.el.nativeElement.value = initialValue;
+      } else if (initialValue.length > 9 && pattern.test(event.data)) {
         this.el.nativeElement.value = initialValue;
       } else {
-        if (event.data == "T") {
-          if (initialValue.length == 9) {
-            this.el.nativeElement.value = initialValue;
-          } else if (initialValue.length < 9 || initialValue.length > 9) {
-            this.el.nativeElement.value = initialValue.substring(
-              0,
-              initialValue.length - 1
-            );
-          }
-        } else {
-          console.log(initialValue);
-        }
+        this.correctInput(initialValue);
       }
     } else {
-      this.el.nativeElement.value = initialValue.substring(
-        0,
-        initialValue.length - 1
-      );
+      this.correctInput(initialValue);
     }
+  }
+
+  correctInput(initialValue) {
+    this.el.nativeElement.value = initialValue.substring(
+      0,
+      initialValue.length - 1
+    );
   }
 }
