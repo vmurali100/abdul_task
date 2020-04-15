@@ -9,7 +9,8 @@ export class CustomdatesecDirective {
   @HostListener("input", ["$event"]) onInputChange(event) {
     let initialValue = this.el.nativeElement.value;
     let pattern = /^[0-9]*$/;
-    if (initialValue.length <= 23) {
+    // if (initialValue.length <= 23) {
+    if (initialValue.length <= 26) {
       if (initialValue.length <= 4 && pattern.test(event.data)) {
         this.el.nativeElement.value = initialValue;
       } else if (
